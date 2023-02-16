@@ -129,3 +129,20 @@ footer> p{
     justify-content: flex-end;
     width: 91%;
 }
+/* -----------Stats----------- */
+table{
+    margin: 10px;
+    text-align: center;
+    border: solid rgba(125, 13, 65, 1);
+}
+thead{
+    background-color: rgba(218, 4, 104, 0.1);
+    border-bottom: solid rgba(125, 13, 65, 1);
+    border-top: solid rgba(125, 13, 65, 1);
+    height: 32px;
+}
+td{
+    border-left: solid rgba(125, 13, 65, 1);
+    height: 32px;
+    width: 30%;
+}
