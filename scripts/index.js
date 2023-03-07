@@ -1,1 +1,1 @@
-console.log(data)
+crearCard(data.events, "#cards")

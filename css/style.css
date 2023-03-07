@@ -161,6 +161,9 @@ td{
         margin-right: 0;
         justify-content: space-around;
     }
+    nav> a{
+        margin: 0.5vh;
+    }
     #titulo{
         margin: 0;
     }
