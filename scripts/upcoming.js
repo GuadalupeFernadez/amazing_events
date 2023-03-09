@@ -12,3 +12,13 @@ function verificarSelect() {
     console.log(seleccionado)
     filtrarCategory(arrayUpcoming, seleccionado)
 }
+
+let search = document.querySelector('.d-flex')
+
+search.addEventListener('submit', (e) => {
+    e.preventDefault() //lo pongo para que no se me recarge la pagina
+    
+    console.log(search[0].value)
+    searchArray(arrayUpcoming, search[0])
+    console.log(arraySearch)
+})

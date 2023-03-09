@@ -50,3 +50,19 @@ function filtrarCategory(arr, seleccionado) {
         crearCard(arr, "#cards")
     }
 }
+
+let arraySearch = []
+function searchArray(arr, input) {
+    arraySearch = []
+    arr.forEach(item => {
+        if(item.name.toLowerCase().includes(input.value.toLowerCase())){
+            arraySearch.push(item)
+        }
+    })
+    if(arraySearch.length> 0){
+        crearCard(arraySearch, '#cards')
+    }else{
+        let card = document.querySelector('#cards')
+        card.innerHTML = 'No events found, please try a new search'
+    }
+}
