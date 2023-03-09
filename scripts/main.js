@@ -9,7 +9,7 @@ function crearCard(arr, contenedor){
                     <h5 class="card-title">${elemento.name}</h5>
                     <div class="price">
                         <p>$${elemento.price}</p>
-                        <a href="./details.html" class="btn btn-primary">See more...</a>
+                        <a href="./details.html?id=${elemento._id}" class="btn btn-primary">See more...</a>
                     </div>
                 </div>
             </div>`;
