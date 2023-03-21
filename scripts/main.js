@@ -16,6 +16,26 @@ function crearCard(arr, contenedor){
     });
 }
 
+let filtros = [] 
+
+function crearFiltros(arr, contenedor){
+    let filter = document.querySelector(contenedor);
+    filter.innerHTML = " "
+    arr.forEach((item) => {
+        if (!filtros.includes(item.category)) {
+            filtros.push(item.category);
+        }else null;
+    })
+    filtros.forEach((filtro) => {
+        filter.innerHTML += `
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" value="${filtro}">
+                <label class="form-check-label" for="flexSwitchCheckDefault">${filtro}</label>
+            </div>
+        `
+    })
+}
+
 let arrayUpcoming = []
 let arrayPast = []
 
@@ -41,7 +61,7 @@ function filtrarCategory(arr, seleccionado) {
         seleccionado.forEach(elemento => {
             if(evento.category == elemento.value) {
                 eventsFiltrado.push(evento)
-            }
+            }else null
         })
     })
     if (eventsFiltrado.length > 0) {

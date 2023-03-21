@@ -1,23 +1,54 @@
-crearCard(data.events, "#cards")
+let urlAPI = "https://mindhub-xj03.onrender.com/api/amazing"
 
-let buttons = document.querySelectorAll(".form-check-input")
+fetch(urlAPI)
+    .then(response => (response.json()
+        .then(data =>{
+            //console.log(data)
+            crearFiltros(data.events, "#filter")
+            crearCard(data.events, "#cards")
+            let buttons = document.querySelectorAll(".form-check-input")
 
-buttons.forEach(button => button.addEventListener('change', verificarSelect))
-console.log(buttons)
-
-function verificarSelect() {
-    let seleccionado = Array.from(buttons).filter(button => button.checked)
-    console.log(seleccionado)
-    filtrarCategory(data.events, seleccionado)
-}
-
-let search = document.querySelector('.d-flex')
-
-search.addEventListener('submit', (e) => {
-    e.preventDefault() //lo pongo para que no se me recarge la pagina
-    
-    console.log(search[0].value)
-    searchArray(data.events, search[0])
-    console.log(arraySearch)
-})
-
+            buttons.forEach(button => button.addEventListener('change', verificarSelect))
+            console.log(buttons)
+            
+            let search = document.querySelector('.d-flex')
+            search.addEventListener('submit', (e) => {
+                e.preventDefault() //lo pongo para que no se me recarge la pagina
+                    //console.log(search[0].value)
+                    searchArray(data.events, search[0])
+                    //console.log(arraySearch)
+                
+            })
+            search.addEventListener('input', (e) => {
+                e.preventDefault() //lo pongo para que no se me recarge la pagina
+                    //console.log(search[0].value)
+                    searchArray(data.events, search[0])
+                    //console.log(arraySearch)
+                
+            })
+            function verificarSelect() {
+                let seleccionado = Array.from(buttons).filter(button => button.checked)
+                console.log(seleccionado)
+                filtrarCategory(data.events, seleccionado)
+                let search = document.querySelector('.d-flex')
+                //console.log(eventsFiltrado)
+                //console.log(data.events)
+                console.log(search) 
+                search.addEventListener('input', (e) => {
+                    e.preventDefault() //lo pongo para que no se me recarge la pagina
+                        //console.log(search[0].value)
+                        searchArray(eventsFiltrado, search[0])
+                        //console.log(arraySearch)
+                })
+                search.addEventListener('submit', (e) => {
+                    e.preventDefault() //lo pongo para que no se me recarge la pagina
+                        //console.log(search[0].value)
+                        searchArray(eventsFiltrado, search[0])
+                        //console.log(arraySearch)
+                    
+                })
+            }
+            
+            
+        })))
+.catch(error=>console.log(error.message))
